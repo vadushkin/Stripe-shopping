@@ -71,6 +71,13 @@ cd stripe_task
 docker-compose up -d
 ```
 
+#### Остановка docker:
+```
+docker-compose stop
+```
+
+Главная страница: http://localhost:8000/
+
 Сервис
 ------
 
