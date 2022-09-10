@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Items</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+
+<section>
+    <h1>Здесь будут продукты</h1>
+    <h2>Добавьте их в админке</h2>
+    {% for item in items %}
+         <br>
+        <div class="product">
+            <div class="description">
+                <h3>Название: {{ item.name }}</h3>
+                <h4>Описание: {{ item.description }}</h4>
+                <h5>Цена: ${{ item.get_str_to_dollars }}</h5>
+            </div>
+        </div>
+        <a href="{% url 'item' item.pk %}">
+            <button type="button" id="checkout-button">Перейти к товару</button>
+        </a>
+    {% endfor %}
+</section>
+
+</body>
+</html>
